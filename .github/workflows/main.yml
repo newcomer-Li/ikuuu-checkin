@@ -8,20 +8,22 @@ on:
 jobs:
   checkin:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-          
+
       - name: Install dependencies
         run: pip install -r requirements.txt
-        
+
       - name: Run checkin script
         env:
-          IKUUU_COOKIE: ${{ secrets.IKUUU_COOKIE }}
+          IKUUU_COOKIE_1: ${{ secrets.IKUUU_COOKIE_1 }}
+          IKUUU_COOKIE_2: ${{ secrets.IKUUU_COOKIE_2 }}
+          IKUUU_COOKIE_3: ${{ secrets.IKUUU_COOKIE_3 }}
         run: python checkin.py
